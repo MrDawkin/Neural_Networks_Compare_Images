@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+        <title>Rezultat sieci neuronowej</title>
+
+    </head>
+    <body>
+        <div class = "second-main" style = "height: 100% , width  100%;">
+                <a style="text-align: center; font-weight: bold; text-decoration: none;" href ="/">Powrót do menu gry</a></li>                
+            <div class = "header">
+                <div class = "row" style = "width: 100% ; display: flex; justify-content: center;">
+                    <h3 class="header-text">Przesłany obraz</h3>
+                </div>
+                <div class = "row" style = "width: 100% ; display: flex; justify-content: center;">
+                    <img class = "result-img" src={{url_for('static', filename = 'images/'+ img)}}>
+                </div>
+            </div>
+
+            <div class = "info">
+            
+                <div class="row" style = "width: 100% ; display: flex; justify-content: center; margin-bottom: 100px;">
+                    <h3 class = "header-text">Wyniki modelu</h3>
+                </div>
+                    <table>
+                        <tr>
+                            <th style="font-weight: bold;">Pozycja </th>
+                            <th style="font-weight: bold;">Kategoria </th>
+                            <th style="font-weight: bold;">Prawdopodobieństwo </th>
+                        </tr>
+                        <tr>
+                            <td>1.</td>
+                            <td>{{ predictions.klasa1 }}</td>
+                            <td>{{ predictions.prawdopodobienstwo1 }} %</td>
+                          </tr>
+                          <tr>
+                            <td>2.</td>
+                            <td>{{ predictions.klasa2 }}</td>                                                         
+                            <td>{{ predictions.prawdopodobienstwo2 }} %</td>                                                      
+                        </tr>                                                                                                               
+                        <tr>
+                            <td>3.</td>
+                            <td>{{ predictions.klasa3 }}</td>
+                            <td>{{ predictions.prawdopodobienstwo3 }} %</td>
+                          </tr>
+                    </table>
+            </div>
+        </div>
+    </body>
+</html>
